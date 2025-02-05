@@ -13,7 +13,9 @@ function Calculator() {
     function C(){
         console.log(setResult(result.slice(0,-1)));
     }
-
+    function equalBtn(){
+        setResult((eval(result)).toString());
+    }
 
     
     return (
@@ -40,7 +42,7 @@ function Calculator() {
                     <button onClick={clickHandler} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg">+</button>
                     <button onClick={clickHandler} className="col-span-2 bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">0</button>
                     <button onClick={clickHandler} className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">.</button>
-                    <button  className="bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">=</button>
+                    <button onClick={equalBtn} className="bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">=</button>
                 </div>
             </div>
         </div>
