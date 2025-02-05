@@ -5,6 +5,8 @@ function Calculator() {
     function clickHandler(e){
         let input =  e.target.innerText ;
         if(input == "." && result.includes(".")) return ;
+        input == "÷" ? input="/" : input == "×" ? input="*" :"" ;
+
         setResult( result + input );
     }
     function reset(){
@@ -16,6 +18,7 @@ function Calculator() {
     function equalBtn(){
         setResult((eval(result)).toString());
     }
+
 
     
     return (
