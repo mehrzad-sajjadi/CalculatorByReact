@@ -6,6 +6,9 @@ function Calculator() {
         setResult(result = result + e.target.innerText);
         console.log(result);
     }
+    function reset(){
+        setResult(result = "");
+    }
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-900">
             <div className="bg-gray-800 shadow-lg rounded-xl p-6 w-80">
@@ -13,7 +16,7 @@ function Calculator() {
                     {result}
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    <button className="col-span-2 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg">Clear</button>
+                    <button onClick={reset} className="col-span-2 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg">Clear</button>
                     <button className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg">C</button>
                     <button onClick={clickHandler} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg">÷</button>
                     <button onClick={clickHandler} className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">7</button>
