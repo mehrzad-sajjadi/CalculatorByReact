@@ -6,7 +6,7 @@ function Calculator() {
         setResult(result = result + e.target.innerText);
         console.log(result);
     }
-
+wdw
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-900">
             <div className="bg-gray-800 shadow-lg rounded-xl p-6 w-80">
