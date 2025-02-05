@@ -3,12 +3,19 @@ function Calculator() {
     var [result,setResult] = useState("");
     
     function clickHandler(e){
-        setResult(result = result + e.target.innerText);
-        console.log(result);
+        let input =  e.target.innerText ;
+        if(input == "." && result.includes(".")) return ;
+        setResult( result + input );
     }
     function reset(){
         setResult(result = "");
     }
+    function C(){
+        console.log(setResult(result.slice(0,-1)));
+    }
+
+
+    
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-900">
             <div className="bg-gray-800 shadow-lg rounded-xl p-6 w-80">
@@ -17,7 +24,7 @@ function Calculator() {
                 </div>
                 <div className="grid grid-cols-4 gap-2">
                     <button onClick={reset} className="col-span-2 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg">Clear</button>
-                    <button className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg">C</button>
+                    <button onClick={C} className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg">C</button>
                     <button onClick={clickHandler} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg">÷</button>
                     <button onClick={clickHandler} className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">7</button>
                     <button onClick={clickHandler} className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">8</button>
@@ -32,7 +39,7 @@ function Calculator() {
                     <button onClick={clickHandler} className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">3</button>
                     <button onClick={clickHandler} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg">+</button>
                     <button onClick={clickHandler} className="col-span-2 bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">0</button>
-                    <button className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">.</button>
+                    <button onClick={clickHandler} className="bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg">.</button>
                     <button  className="bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">=</button>
                 </div>
             </div>
