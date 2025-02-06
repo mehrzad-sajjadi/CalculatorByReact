@@ -1,13 +1,11 @@
 import { useState } from "react";
 function Calculator() {
-    var [result,setResult] = useState("");
-    
+    let [result,setResult] = useState("");
+
     function clickHandler(e){
         let input =  e.target.innerText ;
-        if(input == "." && result.includes(".")) return ;
         input == "÷" ? input="/" : input == "×" ? input="*" :"" ;
-
-        setResult( result + input );
+        setResult(result+input);
     }
     function reset(){
         setResult(result = "");
@@ -16,7 +14,7 @@ function Calculator() {
         console.log(setResult(result.slice(0,-1)));
     }
     function equalBtn(){
-        setResult((eval(result)).toString());
+        setResult(  (eval(result)).toString()  );
     }
 
 
