@@ -1,14 +1,28 @@
 import { useState } from "react";
 function Calculator() {
-    let [result,setResult] = useState("");
 
+    let [result,setResult] = useState("");
+    let [isDot,setIsDot] = useState(false);
+    let [hasDot,setHasDot] = useState(false);
+    
     function clickHandler(e){
         let input =  e.target.innerText ;
+        if(input=="."){
+            if(hasDot==true){
+                return ;
+            }else{
+                setHasDot(hasDot=true);
+            }
+        }else if(input=="÷" || input=="×" || input=="+" || input=="-" ){
+            setHasDot(hasDot=false);
+        }
+
         input == "÷" ? input="/" : input == "×" ? input="*" :"" ;
+
         setResult(result+input);
     }
     function reset(){
-        setResult(result = "");
+        window.location.reload();
     }
     function C(){
         console.log(setResult(result.slice(0,-1)));
