@@ -2,18 +2,21 @@ import { useState } from "react";
 function Calculator() {
 
     let [result,setResult] = useState("");
-    let [isDot,setIsDot] = useState(false);
-    let [hasDot,setHasDot] = useState(false);
     
+    let [hasDot,setHasDot] = useState(false);
+    console.log(`has Dot is ${hasDot}`);
+    // let hasDot = false;
+
     function clickHandler(e){
         let input =  e.target.innerText ;
         if(input=="."){
-            if(hasDot==true){
+            if( hasDot==true ){
                 return ;
             }else{
+                // hasDot = true;
                 setHasDot(hasDot=true);
             }
-        }else if(input=="÷" || input=="×" || input=="+" || input=="-" ){
+        }else if(input=="÷" || input=="×" || input=="+" || input=="-"){
             setHasDot(hasDot=false);
         }
 
@@ -25,10 +28,14 @@ function Calculator() {
         window.location.reload();
     }
     function C(){
-        console.log(setResult(result.slice(0,-1)));
+        setResult(result.slice(0,-1) );
+        if( result.slice(-1)=="." ){
+            setHasDot(hasDot=false);
+        }
     }
     function equalBtn(){
         setResult(  (eval(result)).toString()  );
+        setHasDot(hasDot=false);
     }
 
 
