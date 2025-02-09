@@ -1,22 +1,26 @@
 import { useState } from "react";
+import { evaluate } from "mathjs";
+
 function Calculator() {
 
     let [result,setResult] = useState("");
     
     let [hasDot,setHasDot] = useState(false);
-    console.log(`has Dot is ${hasDot}`);
+    // console.log(`has Dot is ${hasDot}`);
     // let hasDot = false;
-
+    // console.log(hasDot);
     function clickHandler(e){
         let input =  e.target.innerText ;
         if(input=="."){
             if( hasDot==true ){
                 return ;
             }else{
-                // hasDot = true;
+                hasDot = true;
                 setHasDot(hasDot=true);
+                // console.log(hasDot);
             }
         }else if(input=="÷" || input=="×" || input=="+" || input=="-"){
+            // hasDot = false;
             setHasDot(hasDot=false);
         }
 
@@ -34,7 +38,7 @@ function Calculator() {
         }
     }
     function equalBtn(){
-        setResult(  (eval(result)).toString()  );
+        setResult(  evaluate(result).toString()  );
         setHasDot(hasDot=false);
     }
 
